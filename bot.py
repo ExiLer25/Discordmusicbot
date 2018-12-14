@@ -51,4 +51,4 @@ async def on_ready():
     print('Bende insanım.')
 
 	
-bot.run(os.environ.get('token'))
+client.run(os.environ.get('token'))
