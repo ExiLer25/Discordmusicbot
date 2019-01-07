@@ -1,10 +1,22 @@
 import discord
 from discord.ext import commands
 import os
+from discord.ext import commands
+from itertools import cycle
 
 client = commands.Bot(command_prefix = '.')
+status = ['Youtube Music Dinliyor.', 'Oyun Oynuyor.', 'Korku Film izliyor.']
 
 players = {}
+
+async def change_status():
+    await client.wait_until_ready()
+    msgs = cycle(status)
+	
+    while not client.is_closed:
+        current_status = next(msgs)
+        await client.change_presence(game=discord.Game(name=current_status))
+        await asyncio.sleep(20)
 
 @client.event
 async def on_ready():
@@ -44,10 +56,7 @@ async def devam(ctx):
     id = ctx.message.server.id
     players[id].resume()
 
-@client.event
-async def on_ready():
-    await client.change_presence(game=discord.Game(name='Youtube music dinliyor'))
-    print('Bende insanım.')
+client.loop.create_task(change_status())
 
 	
 client.run(os.environ.get('token'))
