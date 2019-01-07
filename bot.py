@@ -24,7 +24,7 @@ async def on_ready():
     print('Bot ONLINE.')
 
 @client.command(pass_context=True)
-async def clear(ctx, amount=100):
+async def temizle(ctx, amount=100):
     channel = ctx.message.channel
     messages = []
     async for message in client.logs_from(channel, limit=int(amount)):
