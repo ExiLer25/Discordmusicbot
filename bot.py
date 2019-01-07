@@ -24,6 +24,15 @@ async def on_ready():
     print('Bot ONLINE.')
 
 @client.command(pass_context=True)
+async def clear(ctx, amount=100):
+    channel = ctx.message.channel
+    messages = []
+    async for message in client.logs_from(channel, limit=int(amount)):
+	    messages.append(message)
+    await client.delete_messages(messages)
+    await client.say('Yazı Alanı Temizlendi')
+
+@client.command(pass_context=True)
 async def katıl(ctx):
    channel = ctx.message.author.voice.voice_channel
    await client.join_voice_channel(channel)
