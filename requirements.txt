@@ -2,4 +2,4 @@ discord
 asyncio
 youtube-dl
 PyNaCl
-pip install --upgrade pip
+pip
