@@ -6,7 +6,7 @@ from discord.ext import commands
 from itertools import cycle
 
 client = commands.Bot(command_prefix = '.')
-status = ['Youtube Music Dinliyor.', 'Oyun', 'Korku Film izliyor.']
+status = ['Youtube Music Dinliyor.', 'Music Seçiyor', 'Dj Oldu.']
 
 players = {}
 
