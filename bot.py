@@ -35,7 +35,7 @@ async def clear(ctx, amount=100):
 @client.command(pass_context=True)
 async def katıl(ctx):
    channel = ctx.message.author.voice.voice_channel
-   await client.join_voice_channel(channel)
+   await bot.join_voice_channel(voice_channel)
 
 @client.command(pass_context=True)
 async def cık(ctx):
